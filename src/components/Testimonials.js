@@ -390,7 +390,7 @@ function Testimonials() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
-            className="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-white/10"
+            className="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/10"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -454,15 +454,15 @@ function Testimonials() {
                   value={projectData.projectType}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-black   rounded-lg text-white focus:outline-none focus:border-[var(--primary-color)] transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-[var(--primary-color)] transition-colors duration-300"
                   style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
                 >
-                  <option value="">Select a project type</option>
-                  <option value="3d-modeling">3D Modeling</option>
-                  <option value="animation">Animation</option>
-                  <option value="visualization">Architectural Visualization</option>
-                  <option value="product-design">Product Design</option>
-                  <option value="other">Other</option>
+                  <option value="" className="bg-gray-800 text-white">Select a project type</option>
+                  <option value="3d-modeling" className="bg-gray-800 text-white">3D Modeling</option>
+                  <option value="animation" className="bg-gray-800 text-white">Animation</option>
+                  <option value="visualization" className="bg-gray-800 text-white">Architectural Visualization</option>
+                  <option value="product-design" className="bg-gray-800 text-white">Product Design</option>
+                  <option value="other" className="bg-gray-800 text-white">Other</option>
                 </select>
               </div>
 
@@ -480,7 +480,7 @@ function Testimonials() {
                 />
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 pb-4">
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.02 }}

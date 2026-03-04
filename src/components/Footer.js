@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaDribbble, FaBehance, FaGithub } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa'
 
 function Footer() {
   const footerLinks = {
@@ -32,13 +32,9 @@ function Footer() {
 
   const socialLinks = [
     { icon: FaFacebook, href: '#', label: 'Facebook' },
-    { icon: FaTwitter, href: '#', label: 'Twitter' },
     { icon: FaInstagram, href: '#', label: 'Instagram' },
     { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
-    { icon: FaYoutube, href: '#', label: 'YouTube' },
-    { icon: FaDribbble, href: '#', label: 'Dribbble' },
-    { icon: FaBehance, href: '#', label: 'Behance' },
-    { icon: FaGithub, href: '#', label: 'GitHub' }
+    { icon: FaYoutube, href: '#', label: 'YouTube' }
   ]
 
   return (

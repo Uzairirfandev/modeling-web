@@ -18,44 +18,33 @@ import {
   FaArrowLeft
 } from 'react-icons/fa'
 
-// 3D Floating Elements for About Section
+// 3D Floating Elements for About Section - Optimized
 function FloatingAboutElements() {
   const groupRef = useRef()
   
   useFrame((state) => {
-    groupRef.current.rotation.y = state.clock.elapsedTime * 0.05
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.02
+    }
   })
   
   return (
     <group ref={groupRef}>
-      {/* Floating Cube */}
-      <Box args={[0.5, 0.5, 0.5]} position={[3, 2, 0]}>
+      {/* Simplified Floating Elements */}
+      <Box args={[0.3, 0.3, 0.3]} position={[2, 1.5, 0]}>
         <meshStandardMaterial 
           color="var(--primary-color)" 
-          metalness={0.8} 
-          roughness={0.2}
-          emissive="var(--primary-color)"
-          emissiveIntensity={0.3}
+          metalness={0.6} 
+          roughness={0.4}
         />
       </Box>
       
       {/* Floating Sphere */}
-      <Sphere args={[0.3, 16, 16]} position={[-3, 1, 1]}>
+      <Sphere args={[0.2, 8, 8]} position={[-2, 0.5, 0.5]}>
         <meshStandardMaterial 
           color="var(--primary-light)" 
-          emissive="var(--primary-light)"
-          emissiveIntensity={0.4}
         />
       </Sphere>
-      
-      {/* Floating Torus */}
-      <Torus args={[0.4, 0.1, 16, 32]} position={[0, 3, -1]}>
-        <meshStandardMaterial 
-          color="var(--primary-accent)" 
-          metalness={0.7} 
-          roughness={0.3}
-        />
-      </Torus>
     </group>
   )
 }
@@ -222,24 +211,37 @@ function About() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 py-20 relative overflow-hidden">
-      {/* 3D Canvas Background */}
-      <div className="absolute inset-0 opacity-30">
-        <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 pt-20 pb-12 md:py-20 relative overflow-hidden">
+      {/* 3D Canvas Background - Optimized & Mobile Responsive */}
+      <div className="absolute inset-0 opacity-20 hidden md:block">
+        <Canvas 
+          camera={{ position: [0, 0, 10], fov: 45 }}
+          dpr={window.devicePixelRatio > 1 ? 1.5 : 1}
+          performance={{ min: 0.5, max: 1 }}
+          gl={{ 
+            antialias: false,
+            alpha: true,
+            powerPreference: "high-performance"
+          }}
+        >
           <Suspense fallback={null}>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={1} />
-            <pointLight position={[-10, -10, -10]} intensity={0.5} color="var(--primary-light)" />
+            <ambientLight intensity={0.3} />
+            <pointLight position={[10, 10, 10]} intensity={0.5} />
+            <pointLight position={[-10, -10, -10]} intensity={0.3} color="var(--primary-light)" />
             <FloatingAboutElements />
-            <StatsBackground />
             <OrbitControls 
               enableZoom={false} 
               enablePan={false}
-              autoRotate
-              autoRotateSpeed={0.3}
+              autoRotate={false}
+              enableRotate={false}
             />
           </Suspense>
         </Canvas>
+      </div>
+      
+      {/* Mobile: Simple gradient background instead of 3D */}
+      <div className="absolute inset-0 md:hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -256,7 +258,7 @@ function About() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
-            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[var(--primary-color)] via-[var(--primary-light)] to-[var(--primary-accent)] bg-clip-text text-white"
+          className="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[var(--primary-color)] via-[var(--primary-light)] to-[var(--primary-accent)] bg-clip-text text-white"
           >
             About Us
           </motion.h1>
@@ -265,7 +267,7 @@ function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4"
           >
             We are a team of passionate 3D artists and designers dedicated to bringing your creative visions to life
           </motion.p>
