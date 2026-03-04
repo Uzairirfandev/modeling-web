@@ -51,10 +51,11 @@ function Footer() {
             className="lg:col-span-2"
           >
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-[var(--primary-color)] to-[var(--primary-light)] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">3D</span>
-              </div>
-              <span className="text-white font-bold text-xl">ModelPro</span>
+              <img 
+                src="/logo/logo.png" 
+                alt="Logo" 
+                className="h-10 w-auto"
+              />
             </div>
             <p className="text-gray-400 mb-6 max-w-sm">
               Creating stunning 3D visualizations that bring your ideas to life. 
