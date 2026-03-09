@@ -243,17 +243,15 @@ function ProjectCard({ title, category, description, Model, delay, views, likes,
           style={{ width: '100%', height: '100%' }}
         >
           <Suspense fallback={null}>
-            <ambientLight intensity={0.6} />
-            <directionalLight position={[5, 5, 5]} intensity={0.8} />
-            <pointLight position={[-5, -5, -5]} intensity={0.4} color="var(--primary-light)" />
-            <Model scale={0.8} />
+            <ambientLight intensity={0.5} />
+            <pointLight position={[10, 10, 10]} intensity={1} />
+            <pointLight position={[-10, -10, -10]} intensity={0.5} color="#60a5fa" />
+            <Model scale={1.5} />
             <OrbitControls 
               enableZoom={false} 
               enablePan={false}
               autoRotate
-              autoRotateSpeed={2}
-              minDistance={5}
-              maxDistance={10}
+              autoRotateSpeed={1}
             />
           </Suspense>
         </Canvas>
