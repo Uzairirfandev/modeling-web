@@ -3,6 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Box, Sphere, Torus } from '@react-three/drei'
 import { motion } from 'framer-motion'
 import { FaCube, FaShapes, FaRocket } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 // 3D Modeling Tools Icons
 function ModelingTools() {
@@ -102,6 +103,8 @@ function GridFloor() {
 }
 
 function HeroSection() {
+  const navigate = useNavigate()
+
   return (
     <div className="hero-section relative min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 overflow-hidden pt-16 md:pt-0">
       {/* 3D Canvas Background */}
@@ -204,6 +207,7 @@ function HeroSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/workspace')}
               className="px-8 py-4 bg-gradient-to-r from-[var(--primary-color)] to-[var(--primary-light)] rounded-lg font-semibold text-white hover:from-[var(--primary-dark)] hover:to-[var(--primary-color)] transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Start Creating

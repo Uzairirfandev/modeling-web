@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ProjectsPage from './components/ProjectsPage'
+import ModelingWorkspace from './components/ModelingWorkspace'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             </>
           } />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/workspace" element={<ModelingWorkspace />} />
         </Routes>
       </div>
     </Router>
