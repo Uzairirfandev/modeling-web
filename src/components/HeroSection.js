@@ -106,7 +106,7 @@ function HeroSection() {
   const navigate = useNavigate()
 
   return (
-    <div className="hero-section relative min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 overflow-hidden pt-16 md:pt-0">
+    <div className="hero-section relative min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 overflow-hidden pt-20 md:pt-24">
       {/* 3D Canvas Background */}
       <div className="absolute inset-0">
         <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
@@ -129,7 +129,7 @@ function HeroSection() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-16 md:pt-0">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-8 md:pt-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -141,7 +141,7 @@ function HeroSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-var(--primary-color) via-var(--primary-light) to-var(--primary-accent) bg-clip-text text-white px-2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-var(--primary-color) via-var(--primary-light) to-var(--primary-accent) bg-clip-text text-white px-2"
           >
             3D Modeling Platform
           </motion.h1>
