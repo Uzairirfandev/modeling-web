@@ -371,7 +371,7 @@ function About() {
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
           className="mb-20"
-        >
+        >a
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Meet Our Team</h2>
           
           {/* Team Slider */}
